@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+@theme {
+  --color-rose-gold: #E8B4B8;
+  --color-soft-pink: #FFB6C1;
+  --color-light-purple: #E6E6FA;
+  --color-romantic-purple: #9370DB;
+  --color-love-red: #FF69B4;
+  
+  --animate-float: float 3s ease-in-out infinite;
+  --animate-pulse-slow: pulse 3s ease-in-out infinite;
+  --animate-sparkle: sparkle 2s ease-in-out infinite;
+  --animate-heart-beat: heart-beat 1.5s ease-in-out infinite;
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+  
+  @keyframes sparkle {
+    0%, 100% { opacity: 0; transform: scale(0); }
+    50% { opacity: 1; transform: scale(1); }
+  }
+  
+  @keyframes heart-beat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-gradient-to-br from-pink-50 via-purple-50 to-rose-50 min-h-screen;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+  
+  * {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .glass-morphism {
+    @apply bg-white/20 backdrop-blur-md border border-white/30 shadow-xl rounded-2xl p-6;
+  }
+  
+  .romantic-gradient {
+    @apply bg-gradient-to-r from-soft-pink via-rose-gold to-light-purple;
+  }
+  
+  .heart-button {
+    @apply bg-gradient-to-r from-love-red to-romantic-purple text-white px-6 py-3 rounded-full font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300;
+  }
+  
+  .input-field {
+    @apply bg-white/20 backdrop-blur-md border border-white/30 shadow-xl rounded-lg px-4 py-3 text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-rose-gold focus:border-transparent transition-all duration-300;
+  }
+}
